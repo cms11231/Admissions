@@ -34,17 +34,29 @@ public class Admissions {
         }
 
         if (rank >= 95){
-            classrank = "E";
+            rankrank = "E";
         } else if (rank >=90 && rank <= 94){
-            classrank = "S";
+            rankrank = "S";
         } else if (rank >= 85 && rank <= 89){
-            classrank = "A";
+            rankrank = "A";
         } else {
-            classrank = "N";
+            rankrank = "N";
+        }
+
+        if (awards >= 10){
+            awardsrank = "E";
+        } else if (awards == 8 || awards == 9){
+            awardsrank = "S";
+        } else if (awards >= 3 && awards <= 7){
+            awardsrank = "A";
+        } else {
+            awardsrank = "N";
         }
 
 
         System.out.println(satrank);
+        System.out.println(rankrank);
+        System.out.println(awardsrank);
         
 	}
 }
