@@ -33,6 +33,16 @@ public class Admissions {
             satrank = "N";
         }
 
+        if (rank >= 95){
+            classrank = "E";
+        } else if (rank >=90 && rank <= 94){
+            classrank = "S";
+        } else if (rank >= 85 && rank <= 89){
+            classrank = "A";
+        } else {
+            classrank = "N";
+        }
+
 
         System.out.println(satrank);
         
