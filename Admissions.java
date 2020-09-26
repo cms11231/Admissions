@@ -11,7 +11,14 @@ public class Admissions {
         String awardsrank;
         String location = "Colorado";
         String locationrank;
+        String lastname = "Padjen";
 
+        int solid = 0;
+
+        boolean requirementa = false;
+        boolean requirementb = false;
+        boolean requirementc = true;
+        boolean requirementd = true;
 
 		System.out.println("What is your SAT score: ");
         sat = scan.nextInt();
@@ -21,42 +28,88 @@ public class Admissions {
         awards = scan.nextInt();
         System.out.println("Where do you reside: ");
         location = scan.next();
+        System.out.println("What is your last name: ");
+        lastname = scan.next();
 
 
         if (sat >= 1500){
             satrank = "E";
+            requirementa = true;
         } else if (sat >= 1400 && sat <= 1499){
             satrank = "S";
+            solid++;
         } else if (sat >= 1200 && sat <= 1399){
             satrank = "A";
         } else {
             satrank = "N";
+            requirementd = false;
         }
 
         if (rank >= 95){
             rankrank = "E";
+            requirementa = true;
         } else if (rank >=90 && rank <= 94){
             rankrank = "S";
+            solid++;
         } else if (rank >= 85 && rank <= 89){
             rankrank = "A";
         } else {
             rankrank = "N";
+            requirementd = false;
         }
 
         if (awards >= 10){
             awardsrank = "E";
+            requirementa = true;
         } else if (awards == 8 || awards == 9){
             awardsrank = "S";
+            solid++;
         } else if (awards >= 3 && awards <= 7){
             awardsrank = "A";
         } else {
             awardsrank = "N";
+            requirementd = false;
+        }
+
+        String lastnamee = "Padjen";
+        if (lastname == lastnamee){
+            requirementc = true;
+        }
+        // } else if (lastname != lastnamee) {
+        //     requirementc = false;
+        // }
+
+        if (location == "Colorado"){
+            awardsrank = "E";
+            requirementa = true;
+        } else if (location == "Florida"){
+            awardsrank = "N";
+            requirementd = false;
+        } else {
+            awardsrank = "A";
         }
 
 
-        System.out.println(satrank);
-        System.out.println(rankrank);
-        System.out.println(awardsrank);
-        
+
+        if (solid >= 2){
+            requirementb = true;
+        }
+
+        System.out.println(lastname + requirementc);
+
+
+        if (requirementa && requirementb && requirementc && requirementd){
+            System.out.println("Congratulations, you were accepted!");
+        } else if (!requirementa){
+            System.out.println("We regret to inform you that you were not accepted. This is due to your lack of Elite in any subject.");
+        } else if (!requirementb){
+            System.out.println("We regret to inform you that you were not accepted. This is due to your lack of two or more Solids in any merit.");
+        } else if (!requirementc){
+            System.out.println("We regret to inform you that you were not accepted. This is due to your last name.");
+        } else if (!requirementd){
+            System.out.println("We regret to inform you that you were not accepted. This is due to a score for a certain merit is lower than Acceptable.");
+        }
+
+
 	}
 }
