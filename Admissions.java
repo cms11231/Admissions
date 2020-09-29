@@ -72,12 +72,11 @@ public class Admissions {
         }
 
         String lastnamee = "Padjen";
-        if (lastname == lastnamee){
+        if (lastname.equals("Padjen")){
             requirementc = true;
+        } else {
+            requirementc = false;
         }
-        // } else if (lastname != lastnamee) {
-        //     requirementc = false;
-        // }
 
         if (location == "Colorado"){
             awardsrank = "E";
@@ -95,20 +94,26 @@ public class Admissions {
             requirementb = true;
         }
 
-        System.out.println(lastname + requirementc);
 
 
-        if (requirementa && requirementb && requirementc && requirementd){
+        if ((requirementa || requirementb || requirementc) && requirementd){
             System.out.println("Congratulations, you were accepted!");
-        } else if (!requirementa){
-            System.out.println("We regret to inform you that you were not accepted. This is due to your lack of Elite in any subject.");
-        } else if (!requirementb){
-            System.out.println("We regret to inform you that you were not accepted. This is due to your lack of two or more Solids in any merit.");
-        } else if (!requirementc){
-            System.out.println("We regret to inform you that you were not accepted. This is due to your last name.");
-        } else if (!requirementd){
-            System.out.println("We regret to inform you that you were not accepted. This is due to a score for a certain merit is lower than Acceptable.");
+        } else {
+            System.out.println("We regret to inform you that you were not accepted. This is due to:");
+            if (!requirementa){
+                System.out.println("- Your lack of Elite in any subject.");
+            }
+            if (!requirementb){
+                System.out.println("- Your lack of two or more Solids in any merit.");
+            }
+            if (!requirementc){
+                System.out.println("- Your last name.");
+            }
+            if (!requirementd){
+                System.out.println("- A score for a certain merit is lower than Acceptable.");
+            }
         }
+
 
 
 	}
