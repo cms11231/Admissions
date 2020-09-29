@@ -71,7 +71,7 @@ public class Admissions {
             requirementd = false;
         }
 
-        String lastnamee = "Padjen";
+        
         if (lastname.equals("Padjen")){
             requirementc = true;
         } else {
